@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <title>{% block title %}{% endblock %}</title>
+
+    {% include('style.html') %}
+
+</head>
+<body>
+ {% include('topnav.html') %}
+  {% block tohen %}
+            <h1>Message from BASE Page!</h1>
+
+    {% endblock %}
+
+ {% block super %}
+<h1> have a nice day! </h1>
+{% endblock %}
+
+</body>
+</html>

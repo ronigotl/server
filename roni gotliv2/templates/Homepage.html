@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link  rel="stylesheet" href="{{url_for('static', filename='newcss.css')}}">
+  <script defer src="{{url_for('static', filename='js.js')}}"> </script>
+
+
+
+</head>
+
+
+<body>
+
+   {% include('topnav.html') %}
+     
+      
+<br><br>
+     <div class="header">Holiday booking</div><br><br><br>
+<hr><hr>
+
+      
+<form class="forms" action="Homepage.html" method="post">
+  <br><br>
+      <img id="img1" src="{{url_for('static', filename='DSC06502.JPG')}}" alt="" width="400" height="200">
+      <img id="img2" src="{{url_for('static', filename='img2.jpg')}}" alt="" width="400" height="200">
+      <img id="img3" src="{{url_for('static', filename='img3.JPG')}}" alt="" width="400" height="200">
+    </form>
+
+      <div class="footer">do you like this photos?</div>
+
+    <small><button  onclick="typeWriter()" >Click me</button></small>
+
+      <p id="demo"></p>
+
+
+    </div>
+  </div>
+</body>
+
+</html>

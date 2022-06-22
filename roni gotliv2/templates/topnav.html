@@ -1,0 +1,24 @@
+<topnav>
+
+      <nav>
+
+        <div class="topnav">
+          <a
+              href="/Homepage">Homepage</a>
+          <a
+              href="/about">ContactUs</a>
+          <a href="https://www.google.co.il/?hl=iw">search</a>
+          <a href="https://www.google.com/maps/@32.226743,34.747009,9z?hl=iw">map</a>
+             <a href="/assignment3_1">assignment3_1</a>
+            <a href="/assignment3_2">assignment3_2</a>
+
+            {% if session ['logedin'] %}
+            <a> Hi, {{ session['username']}}</a>
+        {%else%}}
+        <a>Loged out</a>
+        {% endif%}
+
+        </div>
+      </nav>
+
+</topnav>

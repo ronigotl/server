@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}About Page{% endblock %}
+{% set page = 'assignment3_1' %}
+{% block tohen %}
+
+
+    <div class="gridContainer">
+        {% if user_name == 'roni' %}
+            <h1 class="header"> hello {{ user_name | title() }}</h1>
+        {% else %}
+            <h1 class="header"> hello Stranger</h1>
+        {% endif %}
+    </div>
+
+
+    <h1>About Holiday</h1>
+    <div class="gridContainer">
+        <h2>city names</h2>
+        <ol>
+            {% for city_names in city_names %}
+                <li>
+                    <h3>{{ city_names| upper() }}</h3>
+                </li>
+            {% endfor %}
+        </ol>
+
+    </div>
+    <div class="gridContainer">
+        <h2>countries names</h2>
+        <ol>
+            {% for countries_names in countries_names %}
+                <li>
+                    <h3>{{ countries_names | capitalize() }} </h3>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+
+{% endblock %}
+
+{% block super %}
+{{ super() }}
+{% endblock %}
