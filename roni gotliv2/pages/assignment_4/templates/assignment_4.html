@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block title %}assignment_4{% endblock %}
+{% set page = 'assignment_4' %}
+
+
+
+{% block tohen %}
+
+       <script src="../static/js/js.js"></script>
+
+
+    <h1>user page- holiday</h1>
+
+    {%if message %}
+    <h2>{{  message }}</h2>
+    {% endif %}
+
+    <div class="container">
+    <h2>Insert Form</h2>
+        <form action="/insert_user" method="post">
+            <input type="text" name="name" placeholder="Insert Name">
+            <input type="email" name="email" placeholder="Email">
+            <input type="text" name="user_name" placeholder="Insert user name">
+            <input type="password" name="password" placeholder="Insert password">
+            <input type="submit">
+
+        </form>
+    </div>
+
+
+     {% for user in users %}
+        <div class="container">
+         <div class="user">
+            <h3 style="color: darkred">{{ user.name }}</h3>
+            <h4>Email: {{ user.email }}</h4>
+            <h3 >userName: {{ user.user_name }}</h3>
+        </div>
+            <form action="/delete_user" method="post">
+                <input type="hidden" name="user_id" value="{{ user.id }}">
+                <input type="submit" value="Delete">
+            </form>
+
+   <form action="/update_userS" method="post">
+         <input type="hidden" name="user_id" value="{{ user.id }}">
+         <input type="submit" value="update">
+     </form>
+
+    {% endfor %}
+
+        <div>
+        <h1 class="header-JSON">JSON</h1>
+        <p > <button><a href="/assignment_4/users">Get as JSON</a></button></p>
+      </div>
+
+
+
+
+<h2 class="center">Outer Source Form (Front)</h2>
+        <form id="outer-source__form">
+            <input type="number" name="id" placeholder="Insert ID (1-12)" max="12" required>
+            <input type="submit">
+        </form>
+        </div>
+
+
+
+<div>
+    <h2 class="center">Outer Source Form (Back)</h2>
+        <form action="/assignment_4/outer_source" method="post">
+            <input type="number" name="id" placeholder="Insert ID (1-12)" max="12"  required>
+            <input type="submit">
+        </form>
+</div>
+
+<div class="outer-source__-container">
+    {% if user_from_api %}
+        <h2>hello my name is {{user_from_api["first_name"]}}</h2>
+        <h2>and my last name {{user_from_api["last_name"]}}</h2>
+        <h2>{{user_from_api["email"]}}</h2>
+    {% endif %}
+</div>
+
+
+
+
+{% endblock %}

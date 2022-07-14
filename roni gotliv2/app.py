@@ -1,12 +1,11 @@
 from flask import Flask, redirect, url_for, render_template, request, session, jsonify
-from datetime import timedelta
+import datetime
 
 app = Flask(__name__)
 
-
 app.secret_key = '123'
 app.config['SESSION_PERMANENT'] = True
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=20)
+app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(minutes=20)
 
 
 # root of our website
@@ -36,11 +35,8 @@ def assignment3_1():
                            countries_names=countries_names)
 
 
-
-
-
 users_dict = {
-    "1": {"name": "roni", "email": "roni@gmail.com", "user_name": "ronigotl" },
+    "1": {"name": "roni", "email": "roni@gmail.com", "user_name": "ronigotl"},
     "2": {"name": "mor", "email": "mor@gmail.com", "user_name": "morgotl"},
     "3": {"name": "gal", "email": "gal@gmail.com", "user_name": "galgotl"},
     "4": {"name": "ran", "email": "ran@gmail.com", "user_name": "rangotl"},
@@ -74,7 +70,6 @@ def assignment3_2():
         else:
             return render_template('assignment3_2.html',
                                    message='Please sign in!')
-
 
     if 'name' in request.args:
         name = request.args["name"]
@@ -110,6 +105,10 @@ def session_func():
     return jsonify(dict(session))
 
 
+# --------4-------------#
+from pages.assignment_4.assignment_4 import assignment_4
+
+app.register_blueprint(assignment_4)
 
 if __name__ == '__main__':
     app.run(debug=True)
